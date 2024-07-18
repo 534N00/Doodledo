@@ -1,8 +1,6 @@
-# React + Vite
+# Doodledo
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Doodledo is a project site that works as a platform to doodle asynchronusly alone or with others.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Planned core functionality includes being able to create a profile, draw, and contribute to the drawings of others, along with the necessary supporting features.
+Possible additions are a friend system and thus, public and private doodles.

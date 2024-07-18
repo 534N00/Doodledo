@@ -1,0 +1,23 @@
+.Footer {
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 10vh;
+    background-color: #051520;
+    color: #fff;
+    font-family: "Poetsen One";
+}
+
+#with-love {
+    color: #FCA311;
+}
+
+#logo {
+    font-family: "Pacifico", cursive;
+}
+
+/* on hover css? */
