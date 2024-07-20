@@ -1,0 +1,10 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.pageContent {
+    /* Force main page content to fill whole viewport, forcing footer to bottom */
+    flex-grow: 1;
+}
