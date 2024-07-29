@@ -3,6 +3,7 @@ import Footer from '../../Spans/Footer/Footer';
 import './HomePage.css';
 
 const HomePage = () => {
+    {console.log("home page");}
     return (
         <div className="container">
             <Header />

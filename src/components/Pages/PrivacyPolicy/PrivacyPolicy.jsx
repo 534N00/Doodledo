@@ -1,5 +1,5 @@
 import Footer from '../../Spans/Footer/Footer';
-
+import SignInUpModal from '../../Spans/SignInUpModal/SignInUpModal';
 const PrivacyPolicy = () => {
     return (
         <div>

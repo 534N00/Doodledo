@@ -1,35 +1,54 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import Button from '../../Elements/Button/Button';
+import ProfilePic from '../../Elements/ProfilePic/ProfilePic';
+import SignInUpModal from '../SignInUpModal/SignInUpModal';
 import './Header.css';
 
-const Header = () => {
+const Header = ({ supabase }) => {
     const [isSignedIn, setIsSignedIn] = useState(false);
-    const handleSignIn = () => {
-        setIsSignedIn(true);
+    const [signInModal, setSignInModal] = useState(false);
+    const handleSignInModal = () => {
+        setSignInModal(!signInModal);
+        setSignUpModal(false);
     };
-    const handleSignOut = () => {
-        setIsSignedIn(false);
+    const [signUpModal, setSignUpModal] = useState(false);
+    const handleSignUpModal = () => {
+        setSignUpModal(!signUpModal);
+        setSignInModal(false);
     };
-    return (
-        <header className="headerContainer">
-            {isSignedIn ? (
-                <div className="signedInHeader">
-                    <nav>
-                        <Link to='/'><h2>Doodledo</h2></Link>
-                        <svg onClick={console.log("notif modal")} width="34" height="41" viewBox="0 0 34 41" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M2 32.347H20.9221C23.4817 32.347 26.0319 32.4296 28.5892 32.4296C29.6303 32.4296 30.6919 32.595 31.6854 32.595M13.7418 37.1429C13.8376 37.3239 14.0527 37.5751 14.192 37.7218C14.3927 37.933 14.6928 37.9503 14.8995 38.1352C15.3089 38.5015 15.718 38.714 16.2592 38.714C17.241 38.714 18.2188 38.5621 19.0293 38.0893C19.159 38.0136 19.3299 37.7348 19.406 37.5977C19.5358 37.3642 18.8741 37.391 18.7445 37.391H17.2975C16.879 37.391 16.3457 37.3745 15.9744 37.1889C15.5944 36.9988 14.834 37.1429 14.4033 37.1429M6.54785 30.3624C6.857 29.3663 6.707 28.2336 6.77754 27.2019C6.83074 26.4239 6.87861 25.6004 6.87861 24.8222C6.87861 24.1168 6.99816 23.3601 7.06236 22.6539C7.16235 21.5541 7.23497 20.4579 7.28746 19.3556C7.35973 17.838 7.16671 16.289 7.30124 14.7755C7.37248 13.9741 7.72449 13.2355 7.86629 12.4556C7.97539 11.8555 8.15013 11.2382 8.53239 10.7467C9.18993 9.90128 10.1334 9.37697 11.0039 8.78052C11.4181 8.49669 11.8846 8.08413 12.3361 7.87094C12.853 7.62685 13.3848 7.42928 13.9072 7.16808C14.7303 6.75651 15.5239 6.6306 16.4338 6.6306H17.4996C18.0827 6.6306 18.5176 6.81387 19.0707 6.96136C19.9773 7.20312 20.6083 8.01705 21.3446 8.53245C22.2426 9.16103 23.2039 9.74568 24.078 10.37C26.2381 11.913 26.4833 14.7655 27.2569 17.0862C27.6669 18.3161 27.6336 19.8141 27.6336 21.0966C27.6336 22.4381 27.6187 23.8637 27.2202 25.153C26.9366 26.0704 26.9721 27.2978 26.9721 28.2538V30.6932M16.0572 6.38253C16.0572 5.7838 15.8566 5.15827 15.7264 4.57255C15.6354 4.16297 15.6438 3.76974 15.6438 3.3414C15.6438 2.47544 16.319 2 17.1138 2C17.4822 2 17.9499 2.17131 18.1704 2.45479C18.2722 2.58569 18.4414 2.66654 18.4552 2.84527C18.4732 3.07981 18.7087 3.13072 18.7676 3.35978C18.9606 4.11064 18.9513 4.84915 18.9513 5.63833" stroke="currentColor" strokeWidth="3" strokeLinecap="round"/>
-                        </svg>
+    
 
-                        <button onClick={handleSignOut}>Sign Out</button>
-                    </nav>
+    // prob some query to backend to get user pfp, name, json of setting choices, notifs?
+    return (
+        <nav className="headerContainer">
+            {isSignedIn ? (
+                <div className="headerContent">
+                    <Link id="headerLogo" to='/'><h2>Doodledo</h2></Link>
+                    <svg id="notif" width="25" height="31" viewBox="0 0 25 31" fill="none" xmlns="http://www.w3.org/2000/svg" >
+                        <path d="M2 24.3176H15.3858C17.1966 24.3176 19.0006 24.3784 20.8097 24.3784C21.5461 24.3784 22.2972 24.5 23 24.5M10.3064 27.8446C10.3741 27.9777 10.5263 28.1624 10.6248 28.2703C10.7668 28.4256 10.9791 28.4383 11.1253 28.5743C11.415 28.8437 11.7043 29 12.0872 29C12.7818 29 13.4735 28.8882 14.0469 28.5405C14.1386 28.4849 14.2594 28.2799 14.3133 28.1791C14.4051 28.0073 13.937 28.027 13.8454 28.027H12.8217C12.5257 28.027 12.1484 28.0149 11.8858 27.8784C11.6169 27.7386 11.079 27.8446 10.7743 27.8446M5.21723 22.8581C5.43593 22.1255 5.32981 21.2926 5.37972 20.5338C5.41735 19.9617 5.45121 19.3561 5.45121 18.7838C5.45121 18.265 5.53579 17.7085 5.5812 17.1892C5.65193 16.3804 5.70331 15.5742 5.74044 14.7635C5.79156 13.6475 5.65502 12.5083 5.75019 11.3953C5.80058 10.8059 6.04961 10.2627 6.14991 9.68919C6.2271 9.24789 6.35071 8.79388 6.62113 8.43243C7.08628 7.81071 7.75371 7.42512 8.3695 6.98649C8.66255 6.77775 8.99257 6.47435 9.31194 6.31757C9.67759 6.13806 10.0538 5.99277 10.4234 5.80068C11.0057 5.498 11.567 5.40541 12.2107 5.40541H12.9647C13.3772 5.40541 13.6849 5.54019 14.0761 5.64865C14.7174 5.82644 15.1639 6.42502 15.6847 6.80405C16.32 7.26632 17 7.69628 17.6183 8.15541C19.1465 9.29014 19.3199 11.3879 19.8672 13.0946C20.1572 13.9991 20.1337 15.1007 20.1337 16.0439C20.1337 17.0304 20.1231 18.0789 19.8412 19.027C19.6406 19.7017 19.6657 20.6043 19.6657 21.3074V23.1014M11.9443 5.22297C11.9443 4.78266 11.8024 4.32264 11.7103 3.89189C11.6459 3.59068 11.6518 3.30149 11.6518 2.98649C11.6518 2.34965 12.1295 2 12.6918 2C12.9524 2 13.2832 2.12598 13.4392 2.33446C13.5112 2.43073 13.631 2.49018 13.6407 2.62162C13.6535 2.79411 13.82 2.83155 13.8617 3C13.9983 3.55219 13.9917 4.09531 13.9917 4.67568" stroke="currentColor" strokeWidth="3" strokeLinecap="round"/>
+                    </svg>
+                    {/* grab user name somehow?? */}
+                    <ProfilePic src="src\assets\testPFP.jpg" alt="UserPFP" onClick={console.log("click")} size={40}/>
                 </div>
+                
             ) : (
-                <div className="signedOutHeader">
-                    <button onClick={handleSignIn}>Sign In</button>
+                <div className="headerContent">
+                    <Button onClick={handleSignUpModal} text="SIGN UP" size="wide" id="signUP" />
+                    <Button onClick={handleSignInModal} text="SIGN IN"/>
+                    <SignInUpModal show={signInModal} changeShow={setSignInModal} handleSubmit={console.log("dfdsfs")} inORup="in"/>
+                    <SignInUpModal show={signUpModal} changeShow={setSignUpModal} handleSubmit={console.log("dfdsfs")} inORup="up"/>
                 </div>
+                    
+
             )}
-        </header>
+        </nav>
     );
 }
+
+Header.propTypes = {
+    supabase: PropTypes.object
+};
 
 export default Header;

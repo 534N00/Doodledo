@@ -1,0 +1,18 @@
+.exitButton {
+    position: absolute;
+    top: 0.9rem;
+    right: 0.9rem;
+    border: none;
+    border-radius: 50%;
+    line-height: 0;
+    padding: 0.3rem;
+    cursor: pointer;
+    background-color: #D9D9D9;
+    transition: color 0.5s ease;
+}
+
+.exitButton:hover {
+    background-color: #e2d387;
+    /* From Google button */
+    box-shadow: 0 1px 2px 0 rgba(60, 64, 67, .30), 0 1px 3px 1px rgba(60, 64, 67, .15);
+}

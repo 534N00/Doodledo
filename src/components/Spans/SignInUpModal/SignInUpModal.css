@@ -1,0 +1,37 @@
+.modal {
+    background-color: #fff;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 25rem;
+    padding: 20px;
+    line-height: 2rem;
+    /* Position in middle of screen */
+    position: absolute;
+    top:  50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+#heading {
+    font-family: 'Poetsen One';
+    margin-bottom: 1rem;
+}
+
+.hide {
+    display: none;
+}
+
+.forgotPassword {
+    margin-top: -0.5rem;
+    font-size: smaller;
+    opacity: 60%;
+    text-decoration: none;
+    color: #696969;
+    /* cursor: pointer; */
+}
+.forgotPassword:hover {
+    color: #000;
+}

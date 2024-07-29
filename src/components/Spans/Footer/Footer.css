@@ -2,7 +2,7 @@
     /* Set position to bottom and define dimensions*/
     width: 100%;
     margin-top: 10px;
-    padding: 10px;
+    padding: 7px 20px;
     /* Allign internal items */
     display: flex;
     justify-content: space-between;
@@ -17,6 +17,7 @@
 .clickable {
     color: #fff;
     text-decoration: none;
+    transition: color 0.2s ease;
 }
 .clickable:hover {
     cursor: pointer;
@@ -27,8 +28,14 @@
     color: #FCA311;
 }
 
-#logo {
+#footerLogo {
     font-family: "Pacifico", cursive;
+    color: white;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+#footerLogo:hover {
+    color: #FCA311;
 }
 
 /* on hover css? */

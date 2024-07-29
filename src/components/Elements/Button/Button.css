@@ -1,0 +1,40 @@
+.buttonComponent {
+    background-color: #0D324D;
+    color: white;
+    border-radius: 30px;
+    height: 5vh;
+    border: none;
+    margin: 0 10px;
+    transition: color 0.5s ease;
+}
+.buttonComponent:hover {
+    background-color: #092234;
+    border: 3px inset #0D324D;
+    color: white;
+    border-radius: 30px;
+    height: 5vh;
+    border: none;
+    margin: 0 10px;
+    cursor: pointer;
+    /* From Google button */
+    box-shadow: 0 1px 2px 0 rgba(60, 64, 67, .30), 0 1px 3px 1px rgba(60, 64, 67, .15);
+}
+
+.buttonWide {
+    width: 10rem;
+}
+
+.buttonNormal {
+    width: 6rem;
+}
+
+#signUP {
+    background-color: #826435;
+}
+#signUP:hover {
+    background-color: #644d29;
+}
+
+#modalButton {
+    margin: 1rem 0;
+}

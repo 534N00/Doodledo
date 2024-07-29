@@ -5,7 +5,7 @@ const Footer = () => {
     return (
         <div className="Footer">
             <span>
-                <h2 id="logo">Doodledo</h2>
+                <Link id="footerLogo" to="/"><h2>Doodledo</h2></Link>
                 <h6>Copyright  © 2024</h6>
             </span>
             <Link className="clickable" to="/privacy"><h4>Privacy Policy</h4></Link>
