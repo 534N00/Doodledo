@@ -1,0 +1,18 @@
+.popup-bubble {
+    position: absolute;
+    z-index: 1001;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    max-width: 300px;
+    opacity: 0;
+    animation: fadeIn 0.5s forwards; /* Add fadeIn animation */
+}
+
+@keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+}

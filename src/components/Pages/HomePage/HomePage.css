@@ -1,10 +1,13 @@
-.container {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
+.recent-text {
+    font-family: "Poetsen One", cursive;
+    font-size: 2rem;
+    margin-top: 4rem;
 }
 
-.pageContent {
-    /* Force main page content to fill whole viewport, forcing footer to bottom */
-    flex-grow: 1;
+.bottom-half {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
+

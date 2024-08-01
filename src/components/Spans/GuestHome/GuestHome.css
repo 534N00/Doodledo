@@ -1,0 +1,49 @@
+.home-text {
+    font-family: "Poetsen One", cursive;
+    font-size: 1.7rem;
+    margin-top: 4rem;
+}
+
+.top-half {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 4rem;
+}
+.two-sides {
+    display: flex;
+}
+
+.big-doodledo {
+    font-family: "Pacifico", cursive;
+    font-size: 5rem;
+}
+.cowTalkContainer {
+    display: flex;
+    height: 22rem;
+}
+#cowTalk {
+    transform: translate(0rem, -12rem);
+    height:40rem;
+    width: 40rem;
+}
+#cowQuote {
+    transform: translate(-14rem,-5rem) rotate(17deg);
+    text-wrap: nowrap;
+}
+
+.right-side {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+    #canvas-text {
+        font-family: "Poetsen One", cursive;
+        font-size: 2rem;
+        margin-top: 4rem;
+        margin-bottom: 2rem;
+
+    }
+    #homeCanvas {
+        background-color: white;
+    }

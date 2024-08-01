@@ -1,4 +1,4 @@
-import Footer from '../../Spans/Footer/Footer';
+
 
 const faq = () => {
     return (
@@ -18,7 +18,7 @@ const faq = () => {
             <p>Yes, you can delete a doodle by clicking on the &quot;Delete Doodle&quot; button when viewing a doodle. Once a doodle is deleted, it cannot be recovered.</p>
             <h3>How do I contact support?</h3>
             <p>If you have any questions or need help with Doodledo, you can contact our support team by clicking on the &quot;Support&quot; button in the footer.</p>
-            <Footer />
+
         </div>
     );
 };

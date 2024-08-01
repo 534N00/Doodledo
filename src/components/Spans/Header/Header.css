@@ -2,8 +2,8 @@
     height: 10vh;
     background-color: #00000000;
     color: black;
-    border-bottom: 1px solid #e9ecef;
-    padding: 5px 10px;
+    /* border-bottom: 1px solid #e9ecef; */
+    padding: 1.5rem 1.5rem;
 }
 
 .headerContent {

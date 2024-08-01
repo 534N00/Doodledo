@@ -31,6 +31,11 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+hr {
+  border: 0.1rem solid rgba(0, 0, 0, 0.295);
+  border-radius: 10px;
+}
 /* 
 a {
   font-weight: 500;
