@@ -1,9 +1,9 @@
-
+import DrawSpace from "../../Spans/DrawSpace/DrawSpace";
 
 const DrawPage = () => {
     return (
         <div>
-            <h1>Draw Page</h1>
+            <DrawSpace />
         </div>
     );
 }

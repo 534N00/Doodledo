@@ -21,7 +21,7 @@ function App() {
 
   const [profilePicURL, setProfilePicURL] = useState('');
   const [userName, setUserName] = useState('');
-  const [userID, setUserID] = useState(null);
+  const [userID, setUserID] = useState('');
 
   const cacheFunction = (uid, username, pfpURL) => {
     setProfilePicURL(pfpURL);
