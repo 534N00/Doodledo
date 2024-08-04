@@ -6,3 +6,6 @@ Planned core functionality includes being able to create a profile, draw, and co
 Possible additions are a friend system and thus, public and private doodles.
 
 Based on [Figma design](https://www.figma.com/design/yfbQQpEJj9u7zcPfvJ29rI/Doodledo?node-id=38-221&t=tyLMjzgPYIqiJVRf-1).
+
+## Current state of the project (Aug 8 2024)
+![GIF to show](/public/doodledoGIF1.gif)
