@@ -9,3 +9,8 @@ Based on [Figma design](https://www.figma.com/design/yfbQQpEJj9u7zcPfvJ29rI/Dood
 
 ## Current state of the project (Aug 8 2024)
 ![GIF to show](/public/doodledoGIF1.gif)
+
+## External libraries and services used:
+* [Supabase](https://supabase.com/) -- used for its serverless relational database and JWT authentication
+* [ReactSketchCanvas](https://vinoth.info/react-sketch-canvas/) -- for SVG-based drawing, saving, loading, and exporting functionality
+* [SwiperJS](https://swiperjs.com/) -- for the image carousel used to display recent user doodles
