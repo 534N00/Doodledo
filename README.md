@@ -7,8 +7,13 @@ Possible additions are a friend system and thus, public and private doodles.
 
 Based on [Figma design](https://www.figma.com/design/yfbQQpEJj9u7zcPfvJ29rI/Doodledo?node-id=38-221&t=tyLMjzgPYIqiJVRf-1).
 
+
 ## Current state of the project (Aug 8 2024)
 ![GIF to show](/public/doodledoGIF1.gif)
-
-(Sept 2 2024: Work on draw page)
+###(Sept 2 2024: Work on draw page)
 ![Progress picture](https://i.imgur.com/Z35f9zH.png)
+
+## External libraries and services used:
+* [Supabase](https://supabase.com/) -- used for its serverless relational database and JWT authentication
+* [ReactSketchCanvas](https://vinoth.info/react-sketch-canvas/) -- for SVG-based drawing, saving, loading, and exporting functionality
+* [SwiperJS](https://swiperjs.com/) -- for the image carousel used to display recent user doodles
