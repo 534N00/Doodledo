@@ -1,0 +1,91 @@
+.draw-space-container {
+    display: flex;
+    margin: 0 3rem;
+}
+.icon {
+    width: 3rem;
+    height: 3rem;
+    margin: 0rem;
+}
+
+
+.tools-col {
+    display: flex;
+    flex-direction: column;
+    margin-right: auto;
+}
+.tools-col p {
+    font-family: 'Poetsen One';
+}
+.tools-col button {
+    flex-shrink: 0;
+    cursor: pointer;
+    background-color: white;
+    border: none;
+    border-radius: 25%;
+    width: 4rem;
+    height: 4rem;
+    margin: 0.5rem;
+}
+.tools-col button:hover {
+    background-color: #eeeeee;
+}
+.tools-col input {
+    cursor: pointer;
+}
+.save {
+    display: flex;
+}
+
+.color-select {
+    /* top: 10rem; */
+    /* left: 12rem; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.color-select input {
+    border: none;
+    border-radius: 5%;
+    width: 100% !important;
+    height: 1.5rem;
+}
+.color-select label {
+    font-family: 'Poetsen One';
+    font-size: large;
+}
+
+.stored-colors {
+    margin: 2rem 6rem 0rem 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    height: 28rem;
+    /* position: relative; */
+}
+/* for putting border and sploch svg on top of each other */
+.color-splotch {
+    position: relative;
+}
+.splat-svg {
+    width: 4rem;
+    height: 4rem;
+    position: absolute;
+    top:0;
+    left:0;
+}
+.splat-border-off {
+    color: transparent;
+}
+.splat-border-off:hover {
+    color: #aa8446;
+}
+.splat-border-off:active {
+    color: purple;
+}
+.splat-border-on {
+    color: #aa8446;
+}
+
