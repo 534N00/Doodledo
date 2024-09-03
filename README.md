@@ -11,7 +11,7 @@ Based on [Figma design](https://www.figma.com/design/yfbQQpEJj9u7zcPfvJ29rI/Dood
 ## Current state of the project (Aug 8 2024)
 ![GIF to show](/public/doodledoGIF1.gif)
 ### (Sept 2 2024: Work on draw page)
-![Progress picture](https://i.imgur.com/Z35f9zH.png)
+![Progress picture](https://i.imgur.com/KKXmdYN.png)
 
 ## External libraries and services used:
 * [Supabase](https://supabase.com/) -- used for its serverless relational database and JWT authentication
