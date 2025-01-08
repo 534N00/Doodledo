@@ -7,45 +7,32 @@ import PrivacyPolicy from './components/Pages/PrivacyPolicy/PrivacyPolicy';
 import Support from './components/Pages/Support/Support';
 import Tos from './components/Pages/TOS/tos';
 
-import { createClient } from '@supabase/supabase-js';
-const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
-const SUPABASE_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY;
 import './App.css'
 import Header from './components/Spans/Header/Header';
 import Footer from './components/Spans/Footer/Footer';
+import { UserProvider } from './UserContext';
 
 function App() {
-  // const supabase = createClient(PROJECT_URL, API_KEY);
-  // maybe some state to keep track of user login status
-  const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
-
-  const [profilePicURL, setProfilePicURL] = useState('');
-  const [userName, setUserName] = useState('');
-  const [userID, setUserID] = useState('');
-
-  const cacheFunction = (uid, username, pfpURL) => {
-    setProfilePicURL(pfpURL);
-    setUserName(username);
-    setUserID(uid);
-  };
   
   return (
     <> 
+    <UserProvider>    
       <Router>
-        <Header supabase={supabase} cacheFunction={cacheFunction} UID={userID} pfpURL={profilePicURL} username={userName} />
+        <Header />
         <div className="content">
           <Routes>
-            <Route path="/" exact element={<HomePage supabase={supabase} UID={userID} />} />
-            <Route path="/draw" element={<DrawPage/ >} />
-            <Route path="/faq" element={<Faq/ >} />
-            <Route path="/privacy" element={<PrivacyPolicy/ >} />
-            <Route path="/support" element={<Support/ >} />
-            <Route path="/tos" element={<Tos/ >} />
+            <Route path="/" exact element={<HomePage />} />
+            <Route path="/draw" element={<DrawPage />} />
+            <Route path="/faq" element={<Faq />} />
+            <Route path="/privacy" element={<PrivacyPolicy />} />
+            <Route path="/support" element={<Support />} />
+            <Route path="/tos" element={<Tos />} />
             {/* <Route path="/password" */}
           </Routes>
         </div>
         <Footer /> 
       </Router>
+    </UserProvider>
     </>
   );
 }

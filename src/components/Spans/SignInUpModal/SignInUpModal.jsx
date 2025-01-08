@@ -4,11 +4,17 @@ import ExitButton from '../../Elements/ExitButton/ExitButton';
 import ShortTextField from '../../Elements/ShortTextField/ShortTextField';
 import Button from '../../Elements/Button/Button';
 import GoogleButton from '../../Elements/GoogleButton/GoogleButton';
+import { signUpUser, signInWtihEmail } from '../../../supabase';
 import './SignInUpModal.css';
 
 // Modal for signing in or signing up
-const SignInUpModal = ({ supabase, show, changeShow, cacheFunction, inORup }) => {
-    // State for storing current email and password
+/**
+ * Params: supabase client, bool for displaying modal, function for closing modal (state change), function for caching most needed info, bool for if sign-in or sign-up
+ * 
+ */
+const SignInUpModal = ({ show, changeShow, inORup }) => {
+
+    // State for storing current email and password from text fields
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [password2, setPassword2] = useState(""); // Only used for sign up
@@ -18,66 +24,29 @@ const SignInUpModal = ({ supabase, show, changeShow, cacheFunction, inORup }) =>
     const handleChangePassword2 = (event) => { setPassword2(event.target.value); };
     const handleChangeScreenName = (event) => { setScreenName(event.target.value); };
     
-    // Function to close modal
+    // Close the modal by changing the display state
     const handleExit = () => { changeShow(false); }; // also triggers on overlay click
     const handleModalClick = (e) => {
-        e.stopPropagation(); // Prevents closing modal when clicking inside (still counts as overlay click)
-    };
-
-    // For auth see https://supabase.com/docs/guides/auth/passwords
-    const signUpUser = async () =>  {
-        if (password != password2) {
-            console.error("Passwords do not match"); return;
-        }
-        if (password.length < 8) { console.error("Password must be at least 8 characters long."); return; }
-        const { data, error } = await supabase.auth.signUp({
-            email: email,
-            password: password,
-            options: { data: { screen_name: screenName } }
-        })
-        if (error) {
-            console.error("Error signing up: ", error.message);
-            return;
-        }
-        console.log(data);
-        handleExit();
-    }
-    const signInWtihEmail = async () => {
-        const { data, error } = await supabase.auth.signInWithPassword({
-            email: email,
-            password: password
-        });
-        if (error) {
-            console.error("Error signing in: ", error.message);
-            return;
-        }
-    console.log(data);
-        // Cache most needed info
-        cacheFunction(data.user.id, data.user.user_metadata.screen_name, "src\\assets\\testPFP.jpg");
-        handleExit();
+        e.stopPropagation(); // Prevents closiang modal when clicking inside (still counts as overlay click)
     };
 
     return (
         <div className={show ? "modal-overlay" : ""} onClick={handleExit}>
             <div className={show ? "modal" : "modal hide"} onClick={handleModalClick}>
                 <ExitButton onClick={handleExit}/>
-                { inORup == "in" ? (
-                    <h2 id="heading">Sign In</h2>
-                ) : (
-                    <h2 id="heading">Sign Up</h2>
-                )}
+                { inORup == "in" ? (<h2 id="heading">Sign In</h2>) : (<h2 id="heading">Sign Up</h2>) }
                 <ShortTextField placeholder="Email" onChange={handleChangeEmail} />
                 <ShortTextField type="password" placeholder="Password" onChange={handleChangePassword} />
                 { inORup == "up" ? (
                     <>
                         <ShortTextField type="password" placeholder="Confirm Password" onChange={handleChangePassword2} />
                         <ShortTextField type="text" placeholder="Screen Name" onChange={handleChangeScreenName} />
-                        <Button id="modalButton" text="SIGN UP" size="wide" onClick={signUpUser}/>
+                        <Button id="modalButton" text="SIGN UP" size="wide" onClick={ () => { signUpUser(email, password, password2, screenName); handleExit(); } }/>
                     </>
                 ) : (
                     <>
                         <a className="forgotPassword" href="https://www.coolmathgames.com/0-papas-freezeria"><p>forgot your password?</p></a>
-                        <Button id="modalButton" text="SIGN IN" size="wide" onClick={signInWtihEmail}/>
+                        <Button id="modalButton" text="SIGN IN" size="wide" onClick={ () => { signInWtihEmail(email, password); handleExit(); } }/>
                     </>
                     
                 )}

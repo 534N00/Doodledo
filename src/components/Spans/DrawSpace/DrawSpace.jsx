@@ -1,16 +1,19 @@
 import { useRef, useState } from 'react';
 import  { ReactSketchCanvas } from 'react-sketch-canvas';
 import { SketchPicker } from 'react-color'; // careful, current version uses default props which will be depricated eventually
-
+import { useUser } from '../../../UserContext';
 import './DrawSpace.css';
+
+// Idea: pass in url the id of the doodle so if there's no id then post vs update
 
 const DrawSpace = () => {
     const canvasRef = useRef(null);
+    const [title, setTitle] = useState('Untitled');
     const [eraseMode, setEraseMode] = useState(false);
     const [strokeWidth, setStrokeWidth] = useState(5);
     const [eraserWidth, setEraserWidth] = useState(10);
     const [strokeColor, setStrokeColor] = useState("#000000");
-    const [canvasColor, setCanvasColor] = useState("#ffffff");
+    const canvasColor = "#ffffff";
 
     const [color1, setColor1] = useState("#000000");
     const [color2, setColor2] = useState("#ffffff");
@@ -18,7 +21,6 @@ const DrawSpace = () => {
     const [color4, setColor4] = useState("#ffffff");
     const [color5, setColor5] = useState("#ffffff");
     const [color6, setColor6] = useState("#ffffff");
-    const [color7, setColor7] = useState("#ffffff");
     const [colorSelected, setColorSelected] = useState("");
 
     const [savedPaths, setSavedPaths] = useState([]);
@@ -207,6 +209,9 @@ const DrawSpace = () => {
                 </div>
             </div>
             <div className="canvas-and-colors">
+                <h2 contentEditable='true'
+                    suppressContentEditableWarning='true'
+                    onInput={()=>{}}>Untitled</h2>
                 <ReactSketchCanvas
                     ref={canvasRef}
                     strokeWidth={strokeWidth}
@@ -217,9 +222,6 @@ const DrawSpace = () => {
                     width="54rem"
                     className="canvas"
                 />
-                <span className="colors">
-                    
-                </span>
             </div>
         </div>
     );

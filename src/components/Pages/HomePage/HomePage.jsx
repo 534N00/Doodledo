@@ -1,16 +1,20 @@
 // import Header from '../../Spans/Header/Header';
 // import Footer from '../../Spans/Footer/Footer';
 import PropTypes from 'prop-types';
+import { useUser } from '../../../UserContext';
 import GuestHome from '../../Spans/GuestHome/GuestHome';
 import UserHome from '../../Spans/UserHome/UserHome';
 import './HomePage.css';
 
-const HomePage = ({ supabase, UID }) => {
+const HomePage = () => {
+    // Get global stuff
+    const { user, session } = useUser();
+
     return (
         <div>
             <div className="top-half">
                 {/* Whether to render guest home view or signed-in home view */}
-                {UID == '' ? (<GuestHome />) : (<UserHome />)}
+                {user === null ? (<GuestHome />) : (<UserHome />)}
                 <svg width="91" height="28" viewBox="0 0 91 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g filter="url(#filter0_dd_180_120)">
                         <path d="M6.75 2L45.5 18L84.25 2" stroke="#1E1E1E" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" shapeRendering="crispEdges"/>
